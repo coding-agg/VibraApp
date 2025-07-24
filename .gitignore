@@ -13,3 +13,38 @@
 .externalNativeBuild
 .cxx
 local.properties
+# ✅ Android build and gradle files
+/build/
+**/build/
+.gradle/
+
+# ✅ IDE files (Android Studio / IntelliJ)
+.idea/
+*.ipr
+*.iws
+
+# ✅ Firebase & sensitive configs
+google-services.json
+app/google-services.json
+
+# ✅ Keystore files (for signing releases)
+*.jks
+*.keystore
+
+# ✅ Logs and analytics
+*.log
+crashlytics-build.properties
+
+# ✅ OS-generated files
+Thumbs.db
+
+# ✅ VSCode (if you ever open in it)
+.vscode/
+
+# ✅ Jetpack Compose preview cache
+*.preview
+
+# ✅ Others (safe cleanup)
+captures/
+output.json
+
