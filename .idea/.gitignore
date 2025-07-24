@@ -1,3 +1,37 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+# Ignore build output and local config
+/build/
+**/build/
+.gradle/
+local.properties
+
+# Ignore IDE settings
+.idea/
+*.iml
+
+# Ignore Firebase credentials
+google-services.json
+app/google-services.json
+
+# Ignore generated files and logs
+*.log
+*.apk
+*.aab
+*.ap_
+
+# Signing keys
+*.jks
+*.keystore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code workspace (if used)
+.vscode/
+
+# Crashlytics or analytics (in case you add it later)
+crashlytics-build.properties
+
