@@ -46,9 +46,9 @@
 ### 1. Authentication & Onboarding Flow
 - Launch App
 - └── Check Firebase user (already logged in?)
-- ├── ✅ Yes → Check if username is set
-- │       ├── ✅ Yes → Navigate to HomeScreen
-- │       └── ❌ No  → Navigate to UsernameEntryScreen
+- ├── ✅ Yes → Check if username is set 
+  - ├── ✅ Yes → Navigate to HomeScreen 
+  - └── ❌ No  → Navigate to UsernameEntryScreen
 - └── ❌ No  → Navigate to LoginScreen (Google / Email-Password)
 
 ### 2. Home Screen Layout
@@ -59,8 +59,8 @@
 - ├── 📝 My Playlists
 - ├── 👤 Profile
 - ├── 🔗 Connect (NEW)
-- │     ├── Start Session
-- │     └── Join Session
+  - ├── Start Session 
+  - └── Join Session
 - └── 🚪 Logout
 
 ### 3. Connect Feature Flow
@@ -77,6 +77,49 @@
 - └── Enters code → backend validates code
 - └── If valid → user added to session participants
 - └── Session state is now synced (song, playback)
+
+### 4. Music Experience Flow
+#### Explore Screen
+- ├── Fetch list: `/api/music/all` or `/api/music/recommended`
+- ├── Show cards with album art, name, artist
+- └── OnClick → PlayScreen(songId)
+
+#### Play Music (with or without session)
+- ├── Shows song info, album art
+- ├── Play / Pause / Skip buttons
+- └── If in session:
+- └── Host triggers playback → synced via backend to all
+
+### 5. My Library & Playlists
+- MyLibraryScreen
+  - ├── GET /api/user/library 
+  - └── List of liked/added songs
+
+- PlaylistScreen 
+  - ├── CRUD for playlists 
+  - └── Add/remove/reorder songs
+
+###  6. Profile
+- ProfileScreen
+  - ├── Firebase email + username 
+  - ├── User stats: total plays, likes, playlists 
+  - └── Logout
+
+## Backend API Structure
+- /api/auth/sync                 → POST token, return user info
+- /api/user/check-username       → GET username availability
+- /api/user/register-username    → POST save username
+- /api/music/all                 → GET all songs
+- /api/music/stream/{id}         → GET music file/stream URL
+- /api/user/library              → GET/POST liked songs
+- /api/playlist/...              → Playlist CRUD
+- /api/connect/start             → Start session, return code
+- /api/connect/join              → Join session by code
+- /api/connect/sync              → Play/Pause/Skip/Update
+
+
+
+
 
 
 
